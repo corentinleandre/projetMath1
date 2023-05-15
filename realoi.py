@@ -28,4 +28,16 @@ plt.gca().set_aspect('equal', adjustable='box')
 plt.scatter(z[:, 0], z[:, 1], edgecolors="black")
 levels = [0.01/(2 * np.pi), 0.05/(2 * np.pi), 0.95/(2 * np.pi)]
 plt.contour(x1, x2, f, levels, colors="red")
+
+# Estimateurs empiriques
+muEmp = [np.mean(z[:, 0]), np.mean(z[:, 1])]
+#SigmaEmp = [[np.var(z[:, 0]), np.cov(z)], [np.cov(z), np.var(z[:, 1])]]
+SigmaEmp = np.cov(z, rowvar=False)
+#print(muEmp)
+#print(SigmaEmp)
+
+g = stats.multivariate_normal.pdf(Xpos, muEmp, SigmaEmp)
+plt.contour(x1, x2, g, levels, colors="green")
 plt.show()
+
+
