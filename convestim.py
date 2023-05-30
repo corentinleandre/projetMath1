@@ -12,8 +12,8 @@ levels = [0.01/(2 * np.pi), 0.05/(2 * np.pi), 0.95/(2 * np.pi)]
 
 # making Xpos , matrix of plane points
 # within a hundredth
-x1 = np.arange(-3.5, 3.5, 0.01)  # abscissa values
-x2 = np.arange(-3.5, 3.5, 0.01)  # ordinate values
+x1 = np.arange(mu[0]-3.5, mu[0]+3.5, 0.01)  # abscissa values
+x2 = np.arange(mu[1]-3.5, mu[1]+3.5, 0.01)  # ordinate values
 X1, X2 = np.meshgrid(x1, x2)
 Xpos = np.empty(X1.shape + (2,))
 Xpos[:, :, 0] = X1
