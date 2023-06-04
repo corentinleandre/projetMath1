@@ -21,7 +21,12 @@ Xpos[:, :, 0] = X1
 Xpos[:, :, 1] = X2
 # end Xpos
 
-levels = [0.01/(2 * np.pi), 0.5/(2 * np.pi), 0.95/(2 * np.pi)]
+# - probability wanted
+p = [0.01, 0.5, 0.95]
+
+# - treating for function
+p.sort(reverse=True)
+levels = [(1-x)/(2*np.pi) for x in p]
 
 # - density function and it's ellipses from given constants
 f = stats.multivariate_normal.pdf(Xpos, mu, Sigma)

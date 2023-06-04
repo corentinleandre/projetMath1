@@ -8,7 +8,13 @@ import matplotlib.lines as mlines
 # - constants
 mu = [0, 0]
 Sigma = [[1, 0], [0, 1.0]]
-levels = [0.01/(2 * np.pi), 0.05/(2 * np.pi), 0.95/(2 * np.pi)]
+
+# - probability wanted
+p = [0.01, 0.5, 0.95]
+
+# - treating for function
+p.sort(reverse=True)
+levels = [(1-x)/(2*np.pi) for x in p]
 
 # - making Xpos , matrix of plane points
 # within a hundredth
